@@ -1,0 +1,39 @@
+name: Compilar app
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Limpiar archivos de mas
+        run: rm -f settings.gradle.kts build.gradle.kts
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.5'
+      - name: Compilar APK
+        run: gradle assembleRelease --no-daemon --stacktrace
+      - name: Preparar archivo
+        run: cp app/build/outputs/apk/release/app-release.apk AgendaVoz.apk
+      - uses: actions/upload-artifact@v4
+        with:
+          name: AgendaVoz
+          path: AgendaVoz.apk
+      - name: Publicar version para descargar
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "v1.${{ github.run_number }}" AgendaVoz.apk \
+            --title "Agenda Voz 1.${{ github.run_number }}" \
+            --notes "Descargá AgendaVoz.apk desde el celular e instalalo."
