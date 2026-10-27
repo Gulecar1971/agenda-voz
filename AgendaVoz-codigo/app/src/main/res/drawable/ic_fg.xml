@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp" android:height="108dp"
+    android:viewportWidth="108" android:viewportHeight="108">
+    <!-- hoja de agenda -->
+    <path android:fillColor="#FFFFFF"
+        android:pathData="M34,32h32a4,4 0,0 1,4 4v38a4,4 0,0 1,-4 4h-32a4,4 0,0 1,-4 -4v-38a4,4 0,0 1,4 -4z"/>
+    <path android:fillColor="#1E3A5F"
+        android:pathData="M36,44h20v3h-20zM36,52h20v3h-20zM36,60h14v3h-14z"/>
+    <!-- parlante -->
+    <path android:fillColor="#4CAF50"
+        android:pathData="M60,52h6l8,-7v26l-8,-7h-6z"/>
+    <path android:strokeColor="#4CAF50" android:strokeWidth="3" android:fillColor="#00000000"
+        android:pathData="M78,50a8,8 0,0 1,0 12"/>
+</vector>
