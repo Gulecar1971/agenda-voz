@@ -25,7 +25,7 @@ jobs:
       - name: Compilar APK
         run: gradle assembleRelease --no-daemon --stacktrace
       - name: Preparar archivo
-        run: cp app/build/outputs/apk/release/app-release.apk AgendaVoz.apk
+        run: cp "$(find . -name 'app-release.apk' -path '*outputs*' | head -1)" AgendaVoz.apk
       - uses: actions/upload-artifact@v4
         with:
           name: AgendaVoz
