@@ -6,12 +6,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "agenda-voz"
 include ':app'
-pluginManagement {
-    repositories { google(); mavenCentral(); gradlePluginPortal() }
-}
-dependencyResolutionManagement {
-    repositories { google(); mavenCentral() }
-}
-rootProject.name = "agenda-voz"
-include ':app'
 project(':app').projectDir = file('AgendaVoz-actualizacion/app')
